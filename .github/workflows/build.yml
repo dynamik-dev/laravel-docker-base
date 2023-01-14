@@ -20,10 +20,12 @@ jobs:
       
       - name: Build image and push to GitHub Container Registry
         uses: docker/build-push-action@v2
+        build-args: |
+          BRANCH=${{ env.BRANCH }}
         with:
           context: .
           tags: |
-            ghcr.io/dynamik-dev/laravel-base:${{ github.base_ref }}
+            ghcr.io/dynamik-dev/laravel-base:${{ env.BRANCH }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
