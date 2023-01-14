@@ -3,5 +3,5 @@ This is the base image used by [Dynamik Dev](https://dynamik.dev) for Laravel ap
 To use start your Dockerfile as such:
 
 ```
-FROM ghcr.io/dynamik-dev/laravel-base
+FROM ghcr.io/dynamik-dev/laravel-base:php-8.2
 ```
