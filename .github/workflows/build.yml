@@ -1,7 +1,7 @@
 name: Build and Publish
 on:
-  push:
-    branches: [main]
+  release:
+    types: [published]
 jobs:
 
   build-and-push-docker-image:
@@ -26,7 +26,7 @@ jobs:
         with:
           context: .
           tags: |
-            ghcr.io/dynamik-dev/laravel-base:php8.2
+            ghcr.io/dynamik-dev/laravel-base:${{ github.event.release.tag_name }}
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Image digest
